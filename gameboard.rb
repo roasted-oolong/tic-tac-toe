@@ -14,7 +14,11 @@ class Gameboard
   end
 
   def update_board(row, column, symbol)
-    #update a cell with the player's symbol
+    if valid_move?(row, column)
+      @board[row][column] = symbol
+      true
+    else
+      false
   end
 
   def check_winner
