@@ -11,10 +11,6 @@ class Gameboard
     end
   end
 
-  def valid_move?(row, column)
-    row.between?(0, 2) && column.between?(0, 2) && @board[row][column].nil?
-  end
-
   def update_board(row, column, symbol)
     if valid_move?(row, column)
       @board[row][column] = symbol
@@ -33,6 +29,10 @@ class Gameboard
   end
 
   private
+  def valid_move?(row, column)
+    row.between?(0, 2) && column.between?(0, 2) && @board[row][column].nil?
+  end
+  
   def check_rows
     @board.each { |row| row[0] if winning_line?(row)}
   end
