@@ -29,7 +29,7 @@ class Gameboard
   end
 
   def board_full?
-    #check if the board is full
+    @board.all? { |row| row.none?(&:nil?) }
   end
 
   private
