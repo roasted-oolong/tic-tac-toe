@@ -9,7 +9,11 @@ class Gameboard
     end
   end
 
-  def update_board(position, symbol)
+  def valid_move?(row, column)
+    row.between?(0, 2) && column.between?(0, 2) && @board[row][column].nil?
+  end
+
+  def update_board(row, column, symbol)
     #update a cell with the player's symbol
   end
 
