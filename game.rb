@@ -28,7 +28,7 @@ class Game
   end
 
   def game_over?
-    #check if game is over (win or draw)
+    @gameboard.winner? || @gameboard.board_full?
   end
 
   def end_game
