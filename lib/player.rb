@@ -1,4 +1,4 @@
-require_relative 'gameboard.rb'
+require_relative 'gameboard'
 
 class Player
   attr_reader :name, :symbol
