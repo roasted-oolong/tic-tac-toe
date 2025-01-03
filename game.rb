@@ -32,6 +32,9 @@ class Game
   end
 
   def end_game
-    #display winner/loser
+    if @gameboard.winner?
+      puts "#{@current_player.name} wins!"
+    else
+      puts "It's a tie 🤝"
   end
 end
