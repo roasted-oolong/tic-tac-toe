@@ -24,7 +24,7 @@ class Game
   end
 
   def switch_player
-    #change current player
+    @current_player = @current_player == @player1 ? @player2 : player1
   end
 
   def game_over?
