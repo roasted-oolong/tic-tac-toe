@@ -6,7 +6,19 @@ class Game
     @current_player = @player1
   end
 
-  def play_turn
+  def play
+    puts "Let's play a game of Tic Tac Toe 😊"
+    
+    until game_over?
+      @gameboard.display_board
+      puts "#{@current_player.name}'s turn (#{@current_player.symbol}):"
+
+      move = @current_player.make_move(@gameboard)
+      @gameboard.update_board(move, @current_player.symbol)
+
+      switch_player unless game_over?
+    end
+    
     #handle single turn (get player input, update board, check win)
   end
 
