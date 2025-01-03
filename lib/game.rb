@@ -36,5 +36,6 @@ class Game
       puts "#{@current_player.name} wins!"
     else
       puts "It's a tie 🤝"
+    end
   end
 end
