@@ -17,6 +17,9 @@ class Game
       @gameboard.update_board(move, @current_player.symbol)
 
       switch_player unless game_over?
+
+      @gameboard.display_board
+      announce_results
     end
     
     #handle single turn (get player input, update board, check win)
