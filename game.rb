@@ -1,8 +1,10 @@
 class Game
-  #variables
-  @players
-  @gameboard
-  @current_player
+  def initialize
+    @gameboard = Gameboard.new
+    @player1 = Player.new('Player 1', 'X')
+    @player2 = Player.new('Player 2', 'O')
+    @current_player = @player1
+  end
 
   def play_turn
     #handle single turn (get player input, update board, check win)
