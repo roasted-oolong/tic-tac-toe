@@ -21,8 +21,6 @@ class Game
       @gameboard.display_board
       announce_results
     end
-    
-    #handle single turn (get player input, update board, check win)
   end
 
   def switch_player
