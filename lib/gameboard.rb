@@ -1,13 +1,13 @@
 class Gameboard
   attr_reader :board
-  
+
   def initialize
     @board = Array.new(3) { Array.new(3, nil) }
   end
 
   def display_board
     @board.each do |row|
-      puts row.map { |cell| cell || '_' }.join(' ') #display blank cells as '_' instead of nil
+      puts row.map { |cell| cell || '_' }.join(' ') # display blank cells as '_' instead of nil
     end
   end
 
@@ -29,12 +29,13 @@ class Gameboard
   end
 
   private
+
   def valid_move?(row, column)
     row.between?(0, 2) && column.between?(0, 2) && @board[row][column].nil?
   end
-  
+
   def check_rows
-    @board.each { |row| row[0] if winning_line?(row)}
+    @board.each { |row| row[0] if winning_line?(row) }
   end
 
   def check_columns
@@ -47,14 +48,14 @@ class Gameboard
     diaganol1 = (0...3).map { |i| @board[i][i] }
     diagonal1[0] if winning_line?(diaganol1)
 
-    diagonal2 = (0...3).map { |i| @board[i][2- i] }
+    (0...3).map { |i| @board[i][2 - i] }
     diagonal1[0] if winning_line?(diaganol2)
 
     nil
   end
 
   def winning_line?(line)
-    line.all? { |cell| cell == line[0] && cell !=nil}
+    line.all? { |cell| cell == line[0] && !cell.nil? }
   end
 end
 gameboard = Gameboard.new

@@ -1,5 +1,5 @@
-require_relative 'gameboard.rb'
-require_relative 'player.rb'
+require_relative 'lib/gameboard'
+require_relative 'lib/player'
 
 class Game
   def initialize

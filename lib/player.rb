@@ -15,15 +15,16 @@ class Player
     if valid_input?(input, gameboard)
       input
     else
-      puts "Invalid move. Please try again."
+      puts 'Invalid move. Please try again.'
       make_move(gameboard)
     end
 
     private
     def valid_input?(input, gameboard)
-      return false unless input.size == 2 && input.all? { |x| x.between?(0, 2)}
-        row, col = input
-        gameboard[row, col].nil?
+      return false unless input.size == 2 && input.all? { |x| x.between?(0, 2) }
+
+      row, col = input
+      gameboard[row, col].nil?
     end
   end
 end
