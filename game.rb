@@ -16,7 +16,8 @@ class Game
       @gameboard.display_board
       puts "#{@current_player.name}'s turn (#{@current_player.symbol}):"
 
-      move = @current_player.make_move
+      move = @current_player.make_move(@gameboard)
+      row, col = move
       @gameboard.update_board(row, col, @current_player.symbol)
 
       switch_player unless game_over?

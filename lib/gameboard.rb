@@ -52,7 +52,7 @@ class Gameboard
     diagonal1[0] if winning_line?(diagonal1)
 
     diagonal2 = (0...3).map { |i| @board[i][2 - i] }
-    diagonal1[0] if winning_line?(diagonal2)
+    diagonal2[0] if winning_line?(diagonal2)
 
     nil
   end

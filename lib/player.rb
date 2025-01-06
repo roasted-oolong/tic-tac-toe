@@ -8,7 +8,7 @@ class Player
     @symbol = symbol
   end
 
-  def make_move
+  def make_move(gameboard)
     puts "#{name}, enter your move (example: row column)"
     input = gets.chomp.split.map(&:to_i)
 
@@ -18,14 +18,14 @@ class Player
       puts 'Invalid move. Please try again.'
       make_move(gameboard)
     end
+  end
 
     private
 
-    def valid_input?(input, gameboard)
-      return false unless input.size == 2 && input.all? { |x| x.between?(0, 2) }
+  def valid_input?(input, gameboard)
+    return false unless input.size == 2 && input.all? { |x| x.between?(0, 2) }
 
-      row, col = input
-      gameboard.board[row][col].nil?
-    end
+    row, col = input
+    gameboard.board[row][col].nil?
   end
 end
