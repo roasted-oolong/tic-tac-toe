@@ -36,20 +36,23 @@ class Gameboard
 
   def check_rows
     @board.each { |row| row[0] if winning_line?(row) }
+    nil
   end
 
   def check_columns
     (0...3).each do |column|
       column = @board.map { |row| row[column] }
+      column[0] if winning_line?(column)
     end
+    nil
   end
 
   def check_diagonals
-    diaganol1 = (0...3).map { |i| @board[i][i] }
-    diagonal1[0] if winning_line?(diaganol1)
+    diagonal1 = (0...3).map { |i| @board[i][i] }
+    diagonal1[0] if winning_line?(diagonal1)
 
-    (0...3).map { |i| @board[i][2 - i] }
-    diagonal1[0] if winning_line?(diaganol2)
+    diagonal2 = (0...3).map { |i| @board[i][2 - i] }
+    diagonal1[0] if winning_line?(diagonal2)
 
     nil
   end

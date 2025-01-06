@@ -16,18 +16,17 @@ class Game
       @gameboard.display_board
       puts "#{@current_player.name}'s turn (#{@current_player.symbol}):"
 
-      move = @current_player.make_move(@gameboard)
-      @gameboard.update_board(move, @current_player.symbol)
+      move = @current_player.make_move
+      @gameboard.update_board(row, col, @current_player.symbol)
 
       switch_player unless game_over?
-
-      @gameboard.display_board
-      announce_results
     end
+      @gameboard.display_board
+      end_game
   end
 
   def switch_player
-    @current_player = @current_player == @player1 ? @player2 : player1
+    @current_player = @current_player == @player1 ? @player2 : @player1
   end
 
   def game_over?
@@ -41,4 +40,9 @@ class Game
       puts "It's a tie 🤝"
     end
   end
+end
+
+if __FILE__ == $PROGRAM_NAME
+  game = Game.new
+  game.play
 end

@@ -9,7 +9,7 @@ class Player
   end
 
   def make_move
-    print "#{name}, enter your move (example: row column)"
+    puts "#{name}, enter your move (example: row column)"
     input = gets.chomp.split.map(&:to_i)
 
     if valid_input?(input, gameboard)
@@ -20,11 +20,12 @@ class Player
     end
 
     private
+
     def valid_input?(input, gameboard)
       return false unless input.size == 2 && input.all? { |x| x.between?(0, 2) }
 
       row, col = input
-      gameboard[row, col].nil?
+      gameboard.board[row][col].nil?
     end
   end
 end
